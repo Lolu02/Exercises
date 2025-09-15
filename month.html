@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <main class="m-auto p-4 rounded w-50 shadow">
+        <h1 class="text-center fw-bolder">Days in a Month</h1>
+        <input type="text" id="monthInput" placeholder="Enter a month" class="form-control mt-4">
+        <button class="btn btn-success mt-4" onclick="checkMonth()">Check</button>
+        <h4 id="result"></h4>
+    </main>
+</body>
+</html>
+<script>
+    function checkMonth() {
+        let month = document.getElementById("monthInput").value;
+        let firstMonth = month.toLowerCase()
+        let months = firstMonth.charAt(0).toUpperCase() + firstMonth.slice(1)
+        let days; 
+
+        if (["january","march","may","july","august","october","december"].includes(firstMonth)) {
+            days = 31;
+        } else if (["april","june","september","november"].includes(firstMonth)) {
+            days = 30;
+        } else if (firstMonth === "february") {
+            days = 28;
+        } else {
+            document.getElementById("result").innerHTML = "Invalid month entered.";
+            console.log("Invalid month entered.");
+            
+            return;
+        }
+
+        let result =  `${months} has ${days} days.`
+        console.log(result);
+        
+        document.getElementById("result").innerHTML = `${months} has ${days} days.`;
+    } 
+</script>
