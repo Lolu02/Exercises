@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <main class="m-auto p-4 rounded w-50 shadow">
+        <h1 class="text-center fw-bolder">Age Comparison</h1>
+        <button class="btn btn-success mt-4" onclick="compareAge()">Check</button>
+        <h4 id="result"></h4>
+    </main>
+</body>
+</html>
+<script>
+    let myAge = 30
+
+    function compareAge() {
+        let yourAge = Number(prompt("Enter your age"));
+        let result = "";
+
+        if (yourAge > myAge) {
+            result = `You are ${yourAge - myAge} years older than me.`;
+            console.log(`You are ${yourAge - myAge} years older than me.`);
+            
+        } else if (yourAge < myAge) {
+            result = `I am ${myAge - yourAge} years older than you.`;
+            console.log(`I am ${myAge - yourAge} years older than you.`);
+            
+        } else {
+            result = "We are the same age.";
+            console.log("We are the same age."); 
+        }
+
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
